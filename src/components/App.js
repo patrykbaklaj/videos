@@ -1,6 +1,5 @@
 import React from "react";
 import SearchBar from "../components/SearchBar";
-import VideoDetail from "../components/VideoDetail";
 import VideoList from "../components/VideoList";
 import youtube from "../apis/youtube";
 
@@ -21,18 +20,18 @@ class App extends React.Component {
         this.setState({
             videos: response.data.items
         });
-
-
-
     };
+
+    componentDidUpdate(){
+        console.log(this.state.videos);
+    }
 
     render() {
         return (
             <div className="ui container">
                 <SearchBar onFormSubmit={this.onQuerySubmit} />
                 <div>I have {this.state.videos.length} videos</div>
-                {/* <VideoDetail /> */}
-                {/* <VideoList /> */}
+                <VideoList videos={this.state.videos}/>
             </div>
         );
     }
