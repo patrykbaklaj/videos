@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
 
         // TODO:
         // call a callback from parent component
-        this.props.sampleCall(this.state.query);
+        this.props.onFormSubmit(this.state.query);
     }
 
     render() {
