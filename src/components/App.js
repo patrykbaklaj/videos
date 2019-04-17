@@ -18,7 +18,8 @@ class App extends React.Component {
         });
 
         this.setState({
-            videos: response.data.items
+            videos: response.data.items,
+            selectedVideo: response.data.items[0]
         });
     };
 
@@ -27,6 +28,11 @@ class App extends React.Component {
     //     console.log(this.state.videos);
     // }
     // -----------------
+
+    componentDidMount() {
+        const todayStr = new Date().toLocaleDateString().slice(0, 5);
+        this.onQuerySubmit(todayStr);
+    }
 
     onVideoSelect = video => {
         this.setState({ selectedVideo: video });
